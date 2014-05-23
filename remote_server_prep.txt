@@ -1,0 +1,8 @@
+1.SSH into server as root
+2.Add group admin
+3.Create a new user and add to group admin
+4.Change visudo so that members of group admin:  NOPASSWD:ALL
+5.ssh-copy-id user@123.45.56.78
+6.Comment out require 'capistrano/rvm'
+7.change permissions of ~/.ssh file and ~/.ssh/authorized_keys to 755 and 644 respectively
+8. eval `ssh-agent -s`
