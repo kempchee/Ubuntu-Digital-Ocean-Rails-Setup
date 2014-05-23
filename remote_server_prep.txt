@@ -13,3 +13,13 @@
 12.ssh-add ~/.ssh/id_rsa
 13.Copy and paste keey from ~/.ssh/id_rsa.pub into github account where repo is stored
 14.Test with: ssh -T git@github.com;  you should see a 'success' type message
+15.Uncomment  require 'capistrano/rvm' from your Capfile
+16.ssh into server and create database on server
+
+Unique to My Cap Setup, thank to talkingquickly.co.uk:
+
+1.cap production deploy:setup_config
+2.ssh into server and change database.example.yml to database.yml
+3.cap production deploy
+4.shh and gem install 'rake'; fixes problem where default rvm rake executable may be too old for the rake specified in gemfile.  bundle exec would fix this as well; I thought this problem was fixed in rails 4 but I guess not.
+5.rake db:migrate RAILS_ENV=production
