@@ -3,6 +3,13 @@
 3.Create a new user and add to group admin
 4.Change visudo so that members of group admin:  NOPASSWD:ALL
 5.ssh-copy-id user@123.45.56.78
-6.Comment out require 'capistrano/rvm'
-7.change permissions of ~/.ssh file and ~/.ssh/authorized_keys to 755 and 644 respectively
-8. eval `ssh-agent -s`
+6.change permissions of ~/.ssh file and ~/.ssh/authorized_keys to 755 and 644 respectively(check to see if you can ssh into server without password; if not this step may be necessary)
+7.Comment out require 'capistrano/rvm'
+8.cap server_setup server_setup:all
+#if deploying from github
+9.ssh into server
+10.ssh-keygen -t rsa -C "your_email@example.com"
+11.eval `ssh-agent -s`
+12.ssh-add ~/.ssh/id_rsa
+13.Copy and paste keey from ~/.ssh/id_rsa.pub into github account where repo is stored
+14.Test with: ssh -T git@github.com;  you should see a 'success' type message
